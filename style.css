@@ -1,0 +1,441 @@
+/* Reset básico e estilos do corpo */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* --- Estilos do Header --- */
+header {
+    position: fixed; /* Fixa o header no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Garante que o header fique acima de outros conteúdos */
+    box-sizing: border-box;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura definida para o header */
+    padding: 0 5%; /* Espaçamento nas laterais */
+}
+
+#logo {
+    height: 60px; /* Ajuste o tamanho do seu logo */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #007bff;
+}
+
+.nav-menu button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Conteúdo Principal e Seção Hero --- */
+main {
+    /* Adiciona um padding no topo igual à altura do header para não haver sobreposição */
+    padding-top: 80px;
+}
+
+.hero {
+    display: flex;
+    /* A altura da seção será a altura da tela menos a altura do header */
+    height: calc(100vh - 80px);
+    background-color: white;
+    align-items: center;
+}
+
+.hero-text {
+    flex-basis: 40%; /* Define que o texto ocupará 50% da largura */
+    padding: 0 5%;
+    box-sizing: border-box;
+    margin-top: -18vh;
+    top: 10vh;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #495057;
+}
+
+.hero-image {
+    flex-basis: 50%;
+    height: 80%;
+    margin-top: -18vh;
+    margin-left: 10%;
+}
+
+#saude {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+
+    /* Efeito de degradê para a imagem aparecer suavemente */
+    /* A máscara faz com que a parte transparente do gradiente esconda a imagem */
+    mask-image: linear-gradient(to right, transparent 5%, black 40%);
+    /* Prefixo para compatibilidade com navegadores WebKit (Chrome, Safari) */
+    -webkit-mask-image: linear-gradient(to right, transparent 5%, black 40%);
+}
+
+/* --- Seção "Two" --- */
+.two {
+    margin-top: -9%;
+    padding: 80px 5%;
+    text-align: center;
+    background-color: #f4f4f6
+}
+
+.two-text h1 {
+    margin-top: -3%;
+    font-size: 2.2rem;
+    color: #212529;
+    margin-bottom: 50px;
+}
+
+.two-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os logos quebrem a linha em telas menores */
+    gap: 60px; /* Espaçamento entre os logos */
+}
+
+.two-image img {
+    height: 50px; /* Altura padrão para os logos */
+    /* Cada imagem terá sua própria transição para um efeito mais dinâmico */
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/*
+  Quando o usuário rola para baixo, a classe 'scrolling-down' é adicionada ao container '.two-image'.
+  Isso aciona a transformação para cada imagem individualmente, criando um efeito mais fluido.
+*/
+.two-image.scrolling-down img {
+    transform: translateX(60px);
+}
+
+/* Para um efeito mais orgânico, as imagens pares se moverão um pouco menos que as ímpares */
+.two-image.scrolling-down img:nth-child(even) {
+    transform: translateX(40px);
+}
+
+/* --- Seção "Three" --- */
+.three {
+    padding: 80px 5%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.three h1 {
+    flex: 1;
+    text-align: left;
+    font-size: 2.8rem;
+    color: #212529;
+    margin: 0;
+}
+
+.three h2 {
+    flex: 1;
+    text-align: right;
+    font-size: 1.2rem;
+    color: #495057;
+    margin: 0;
+    font-weight: 400;
+}
+
+.three-video {
+    flex: 2;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Proporção para vídeos widescreen */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombreamento estratégico */
+    border-radius: 10px;
+}
+
+.three-video .video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* --- Seção "Four" --- */
+.four {
+    /* Padding ajustado para a imagem se conectar à borda esquerda e inferior */
+    padding: 80px 5% 0 0;
+    background-color: #f4f4f6;
+    display: flex; /* Ativa o layout flexível */
+    align-items: center; /* Centraliza o texto verticalmente em relação à imagem */
+    gap: 50px; /* Espaço entre a imagem e o texto */
+}
+
+.four-image {
+    margin: 0; /* Remove margens */
+    flex: 1; /* Ocupa metade do espaço */
+    display: flex;
+    align-self: flex-end; /* Alinha o container da imagem à base da seção */
+}
+
+.four-image img {
+    width: 100%;
+    max-width: 650px; /* Aumenta o tamanho da imagem */
+    height: auto;
+}
+
+.four-text {
+    flex: 1; /* Ocupa a outra metade do espaço */
+}
+
+.four-text h2 {
+    font-size: 2.5rem;
+    color: #212529;
+    margin-bottom: 20px;
+}
+
+.four-text p {
+    font-size: 1.2rem;
+    color: #495057;
+    margin-bottom: 30px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #25D366; /* Verde do WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #128C7E; /* Tom mais escuro ao passar o mouse */
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #212529; /* Cor escura para contraste */
+    color: white;
+    padding: 30px 5%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividade em telas menores */
+    gap: 20px;
+}
+
+.footer-logo {
+    height: 50px;
+}
+
+.footer-text {
+    text-align: right;
+}
+
+.footer-text p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #ced4da;
+}
+
+/* --- Menu Hamburger e Navegação Móvel --- */
+.hamburger-menu {
+    display: none; /* Escondido em telas de desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1011;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do hamburger para 'X' quando ativo */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 80px; /* Abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.mobile-nav.active {
+    display: flex; /* Mostra o menu quando ativo */
+}
+
+.mobile-nav a, .mobile-nav button {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.mobile-nav button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    margin: 10px 20px 0 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: calc(100% - 40px);
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Ajustes para tablets e telas menores (até 992px) */
+@media (max-width: 992px) {
+    .hero-text h1 { font-size: 2.4rem; }
+    .hero-text p { font-size: 1.1rem; }
+    .three h1 { font-size: 2.4rem; }
+    .three h2 { font-size: 1.1rem; }
+    .four-text h2 { font-size: 2.2rem; }
+}
+
+/* Ajustes para dispositivos móveis (até 768px) */
+@media (max-width: 768px) {
+    /* --- Header Responsivo --- */
+    .nav-menu {
+        display: none; /* Esconde o menu desktop */
+    }
+    .hamburger-menu {
+        display: flex; /* Mostra o menu hamburger */
+    }
+
+    /* --- Seção Hero --- */
+    .hero {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 5%;
+        text-align: center;
+    }
+    .hero-text {
+        flex-basis: auto;
+        margin-top: 0;
+        padding: 0;
+    }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text p { font-size: 1rem; }
+    .hero-image {
+        flex-basis: auto;
+        margin-top: 40px;
+        margin-left: 0;
+        width: 90%;
+        height: auto;
+    }
+    #saude {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    /* --- Seção "Two" --- */
+    .two {
+        margin-top: 0;
+        padding: 60px 5%;
+    }
+    .two-text h1 { font-size: 1.8rem; margin-bottom: 40px; }
+    .two-image { gap: 30px; }
+    .two-image img { height: 40px; }
+
+    /* --- Seção "Three" --- */
+    .three {
+        flex-direction: column;
+        padding: 60px 5%;
+        gap: 30px;
+    }
+    .three h1, .three h2 { flex: none; text-align: center; width: 100%; }
+    .three h1 { font-size: 2rem; order: 1; }
+    .three-video { order: 2; width: 100%; }
+    .three h2 { font-size: 1rem; order: 3; }
+
+    /* --- Seção "Four" --- */
+    .four {
+        flex-direction: column-reverse;
+        padding: 60px 5%;
+        gap: 40px;
+    }
+    .four-image { align-self: center; }
+    .four-image img { max-width: 100%; }
+    .four-text { text-align: center; }
+    .four-text h2 { font-size: 2rem; }
+
+    /* --- Footer --- */
+    .footer-container { flex-direction: column; justify-content: center; text-align: center; }
+    .footer-text { text-align: center; }
+}
